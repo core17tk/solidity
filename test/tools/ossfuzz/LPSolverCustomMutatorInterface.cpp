@@ -60,7 +60,7 @@ LPSolverCustomMutatorInterface::LPSolverCustomMutatorInterface(
 
 size_t LPSolverCustomMutatorInterface::generate()
 {
-	string testCase = generator->generateConstraints();
+	string testCase = generator->generate();
 	solAssert(
 		!testCase.empty() && data,
 		"Solc custom mutator: Invalid mutant or memory pointer"

@@ -12,3 +12,30 @@
 	along with solidity.  If not, see <http://www.gnu.org/licenses/>.
 */
 // SPDX-License-Identifier: GPL-3.0
+
+#include <test/tools/ossfuzz/lpsolver/ConstraintGenerator.h>
+
+using namespace std;
+using namespace solidity::test::fuzzer::lpsover;
+
+ConstraintGenerator::ConstraintGenerator(unsigned _seed)
+{
+	prng = make_shared<RandomEngine>(_seed);
+}
+
+string ConstraintGenerator::generate()
+{
+	string constraint;
+	for (int = 0; i < numConstraints(); i++)
+	{
+		string sep;
+		for (int j = 0; j < numFactors(); j++)
+		{
+			constraint += sep + to_string(randomInteger());
+			if (sep.empty())
+				sep = ", ";
+		}
+		constraint += "\n";
+	}
+	return constraint;
+}
